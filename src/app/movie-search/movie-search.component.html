@@ -1,0 +1,27 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Название фильма" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <div class="example-full-width">
+    <button mat-raised-button color="primary" (click)="onSubmit()">Поиск</button>
+  </div>
+
+  <div class="movies-list" *ngIf="myMovie">
+    <div class="image">
+      <img [src]="myMovie.Poster" alt="">
+    </div>
+    <div class="content">
+      <div class="title">{{myMovie.Title}} ({{myMovie.Year}})</div>
+      <div class="description">{{myMovie.Plot}}</div>
+    </div>
+    <div class="buttons">
+      <button mat-raised-button color="accent">Добавить в список</button>
+    </div>
+  </div>
+
+</form>

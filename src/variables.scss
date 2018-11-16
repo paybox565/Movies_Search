@@ -1,0 +1,48 @@
+//Variabes
+//--------------------------------------------
+// Based
+$font_base: 'Open Sans';
+$font_color: #4C4F56;
+$border_color: #b3b9bd;
+
+$container_margin: 48px;
+$container_margin_1024: 32px;
+$container_margin_768: 32px;
+$container_margin_320: 16px;
+
+$block_margin_bottom: 20px;
+
+$border-radius: 3px;
+
+//Colors
+$color_porcelain_lt: #F7F9F9; //rgba(232,234,235,1)
+$color_porcelain: #E8EAEB; //rgba(232,234,235,1)
+$color_concrete: #F2F2F2; //rgba(242,242,242,1)
+$wild_sand: #F4F4F4; //rgba(242,242,242,1)
+$nevada: #687276;
+$slate_gray: #6B7A8F;
+$violet_eggplant: #841983;
+$cornflower: #82ABE3;  //rgba(130,171,227,1)
+$danube: #5B8DD2;  //rgba(91,141,210,1)
+$allports: #0076A3;  //rgba(0,118,163,1)
+$cameo: #eab126;
+$jungle_green: #31B892;
+$persian_green: #00B783; //rgba(0,183,131,1)
+$fun_green: #008E21;
+$cameo: #eab126;
+
+
+//Mixins
+//------------------------------------------
+@mixin clearfix() {
+  *zoom: 1;
+
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
