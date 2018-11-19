@@ -9,8 +9,9 @@ import {Movie} from "./movie";
 })
 export class MoviesService {
 
-  private moviesUrl = 'http://www.omdbapi.com?apikey=ad3a0abc&t=';
-  private moviesListUrl = 'http://www.omdbapi.com?apikey=ad3a0abc&t=';
+    private moviesUrl = 'http://www.omdbapi.com?apikey=ad3a0abc&t=';
+    private moviesUrlById = 'http://www.omdbapi.com?apikey=ad3a0abc&i=';
+    myMovies: Movie[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +19,22 @@ export class MoviesService {
         return this.http.get<Movie>(this.moviesUrl + title)
     }
 
-    getMoviesList(): Observable<Movie[]> {
-        return this.http.get<Movie[]>(this.moviesListUrl)
+    public getMovieById(id: string): Observable<Movie> {
+        return this.http.get<Movie>(this.moviesUrlById + id)
+    }
+
+    public getMyMovies():Array<Movie> {
+        return this.myMovies;
+    }
+
+    public addMovie(title:string) {
+        this.getMovie(title).subscribe((data:Movie) => {
+            this.myMovies.push(data);
+        });
+    }
+
+    public deleteMovie(movie: Movie) : void{
+        this.myMovies = this.myMovies.filter(h => h !== movie);
     }
 
 }

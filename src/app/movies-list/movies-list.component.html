@@ -1,10 +1,15 @@
-<h2>Мои фильмы</h2>
-
-<ul class="my-movies-list">
-  <li *ngFor="let movie of movies">
-    <a routerLink="/detail/{{movie.imdbID}}">
-      <span class="badge">{{movie.imdbID}}</span> {{movie.Title}}
-    </a>
-    <!--<button class="delete" title="delete hero" (click)="delete(hero)">x</button>-->
-  </li>
-</ul>
+<div class="movies-list mat-typography">
+  <div class="mat-title">Мои фильмы</div>
+  <div *ngIf="myMovies"
+       class="list">
+    <div *ngFor="let item of myMovies"
+         class="item">
+      <a routerLink="/movies/{{item.imdbID}}">{{item.Title}}</a>
+      <div class="description mat-caption">{{item.Plot}}</div>
+      <div class="buttons">
+        <button (click)="deleteMovie(item)"
+                mat-mini-fab color="warn">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>

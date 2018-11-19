@@ -9,17 +9,26 @@ import {MoviesService} from "../shared/movies.service";
 })
 export class MoviesListComponent implements OnInit {
 
-  movies: Movie[];
+  myMovies: Movie[] = [];
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private movies: MoviesService) { }
 
     ngOnInit() {
         this.getMovies();
     }
 
-    getMovies(): void {
-        this.moviesService.getMoviesList()
-            .subscribe(movies => this.movies = movies);
+    getMovies(): Array<Movie> {
+        return this.myMovies = this.movies.getMyMovies();
     }
+
+    deleteMovie(item: Movie){
+        let movie = item || null;
+        if(movie != null){
+            this.movies.deleteMovie(movie);
+            this.myMovies = this.movies.getMyMovies();
+        }
+    }
+
+
 
 }
