@@ -1,0 +1,15 @@
+<div class="movies-list mat-typography">
+  <div class="mat-title">Мои фильмы</div>
+  <div *ngIf="myMovies"
+       class="list">
+    <div *ngFor="let item of myMovies"
+         class="item">
+      <a routerLink="/movies/{{item.imdbID}}">{{item.Title}}</a>
+      <div class="description mat-caption">{{item.Plot}}</div>
+      <div class="buttons">
+        <button (click)="deleteMovie(item)"
+                mat-mini-fab color="warn">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>

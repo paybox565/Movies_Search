@@ -1,0 +1,11 @@
+<div *ngIf="movie">
+  <h2>{{movie.Title | uppercase}}</h2>
+  <div class="imdb"><span>iMDB</span> {{movie.imdbID}}</div>
+  <div class="image">
+    <img [src]="movie.Poster" alt="">
+  </div>
+  <div class="description">
+    {{movie.Plot}}
+  </div>
+  <button mat-raised-button color="accent" (click)="goBack()">Вернуться к поиску</button>
+</div>

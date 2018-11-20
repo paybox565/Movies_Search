@@ -1,0 +1,119 @@
+/* You can add global styles to this file, and also import other style files */
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+html {
+  min-width: 440px;
+}
+body {
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background: white;
+  color: $font_color;
+  padding: 0;
+}
+.page-container {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background: linear-gradient(to right, rgba(91,141,210,0.35) 0%,rgba(49,184,146,0.45) 100%);
+  padding-bottom: 120px;
+  position: relative;
+  overflow: hidden;
+}
+.l-sides {
+  @include clearfix();
+}
+.l-side-left {
+  float: left;
+}
+.l-side-right {
+  float: right;
+}
+.container {
+  max-width: 1366px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.substrate {
+  padding: 10px;
+  border: 5px solid rgba(130,171,227,0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5), inset 0 0 4px rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.05);
+}
+a {
+  text-decoration: underline;
+  color: forestgreen;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.text-bold {
+  font-weight: 700;
+}
+header {
+  padding: 10px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    width: 100px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+  .description {
+    padding: 0 50px;
+  }
+}
+nav {
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 2px 4px;
+
+      a {
+        display: block;
+        padding: 10px 14px;
+        background-color: white;
+        font-size: 16px;
+        color: $nevada;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.35s ease, box-shadow 0.35s ease;
+
+        &:hover {
+          box-shadow: 4px 4px 2px rgba(0,0,0,0.2);
+        }
+        &.active {
+          background-color: $color_porcelain;
+        }
+      }
+    }
+  }
+}
+
+
+footer {
+  height: 100px;
+  margin-top: -100px;
+  position: relative;
+}/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

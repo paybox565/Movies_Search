@@ -1,0 +1,23 @@
+.movies-list {
+
+  .item {
+    padding-right: 60px;
+    position: relative;
+    margin-bottom: 20px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .buttons {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin: -20px 0 0 0;
+
+    .mat-mini-fab {
+      font-size: 8px;
+    }
+  }
+}
