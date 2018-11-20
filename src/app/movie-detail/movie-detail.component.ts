@@ -26,14 +26,9 @@ export class MovieDetailComponent implements OnInit {
   getMovie(): void {
       let id = this.route.snapshot.paramMap.get('id');
       this.movies.getMovieById(id)
-          .subscribe(movie => this.movie = movie);
-  }
-
-  addMovie(title: string){
-      let tilte = title || null;
-      if(tilte != null){
-          this.movies.addMovie(title);
-      }
+          .subscribe(
+              movie => this.movie = movie,
+              err => console.error('Caught ' + err));
   }
 
   goBack(): void {

@@ -26,8 +26,14 @@
         <div class="description">{{myMovie.Plot}}</div>
       </div>
       <div class="buttons">
-        <button (click)="addMovie(myMovie.Title)"
-                mat-raised-button color="accent">Добавить в список</button>
+
+
+        <div *ngIf="this.movieInList; else elseBlock">
+          <button mat-raised-button color="primary">Уже добавлен</button>
+        </div>
+        <ng-template #elseBlock>
+          <button (click)="addMovie(myMovie.Title)" mat-raised-button color="accent">Добавить в список</button>
+        </ng-template>
       </div>
     </div>
   </div>

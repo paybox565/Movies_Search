@@ -16,25 +16,30 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
     public getMovie(title: string): Observable<Movie> {
-        return this.http.get<Movie>(this.moviesUrl + title)
+        return this.http.get<Movie>(this.moviesUrl + title).pipe(
+            catchError(err => of(err.message))
+        );
     }
 
     public getMovieById(id: string): Observable<Movie> {
-        return this.http.get<Movie>(this.moviesUrlById + id)
+        return this.http.get<Movie>(this.moviesUrlById + id).pipe(
+            catchError(err => of(err.message))
+        );
     }
 
-    public getMyMovies():Array<Movie> {
+    public getMyMovies():Movie[] {
         return this.myMovies;
     }
 
     public addMovie(title:string) {
         this.getMovie(title).subscribe((data:Movie) => {
             this.myMovies.push(data);
-        });
+        },
+        err => console.error('Caught ' + err));
     }
 
     public deleteMovie(movie: Movie) : void{
-        this.myMovies = this.myMovies.filter(h => h !== movie);
+        this.myMovies = this.myMovies.filter(m => m !== movie);
     }
 
 }
